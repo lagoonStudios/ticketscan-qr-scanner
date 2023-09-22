@@ -1,7 +1,6 @@
 import axios from "axios";
-import { REACT_APP_BASE_URL } from "@env";
 
-const axiosInstance = axios.create({ baseURL: REACT_APP_BASE_URL });
+const axiosInstance = axios.create({ baseURL: '' });
 
 export const GET = (endpoint: string, options?: { abortController?: AbortController }) => {
   return axiosInstance.get(endpoint, { signal: options?.abortController?.signal });
