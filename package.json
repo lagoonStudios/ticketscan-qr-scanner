@@ -1,9 +1,12 @@
 {
-  "name": "expo-template",
+  "name": "ticket-scann-qr",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
+    "reset-cache": "expo start --reset-cache",
+    "reset-cahce-tunnel": "expo start --tunnel --reset-cache",
+    "tunnel": "expo start --tunnel",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
