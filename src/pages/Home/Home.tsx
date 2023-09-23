@@ -3,7 +3,7 @@ import { View, Text, TouchableHighlight } from "react-native";
 
 import { styles } from "./Home.styles";
 
-import { testFirebase } from "@/lib/firebase/functions";
+import { logOut } from "@/hooks/auth/auth";
 
 export function Home(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
@@ -14,17 +14,8 @@ export function Home(): React.JSX.Element {
 
       <View style={styles.sectionsContainer}>
         <View>
-          <Text style={styles.subHeader}>Using Typescript, Prettier and Eslint</Text>
-        </View>
-        <View>
-          <Text style={styles.subHeader}>Atomic design</Text>
-        </View>
-        <View>
-          <Text style={styles.subHeader}>Env variables</Text>
-        </View>
-        <View>
-          <TouchableHighlight onPress={() => testFirebase()}>
-            <Text>Test</Text>
+          <TouchableHighlight onPress={() => logOut()}>
+            <Text>LogOut</Text>
           </TouchableHighlight>
         </View>
       </View>

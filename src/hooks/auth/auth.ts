@@ -1,5 +1,11 @@
-import React from 'react';
-import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
+import React from "react";
+import {
+  getAuth,
+  onAuthStateChanged,
+  User,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 
 const auth = getAuth();
 
@@ -22,6 +28,24 @@ export function useAuthentication() {
   }, []);
 
   return {
-    user
+    user,
   };
+}
+
+export function logIn(email: string, password: string) {
+  return signInWithEmailAndPassword(auth, email, password);
+}
+
+export function logOut() {
+  return signOut(auth);
+}
+
+export function handleAuthErrorMessage(message: string): string {
+  console.log("error msg: ", message);
+
+  if (message.includes("invalid-email")) return "Email inválido";
+
+  else if (message.includes("invalid-login-credentials")) return "Usuario o contraseña inválidos";
+
+  return "Error de autenticación";
 }

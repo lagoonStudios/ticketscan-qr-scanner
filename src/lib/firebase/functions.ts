@@ -1,9 +1,9 @@
-import { firestore } from "App";
+import { firestore } from "./firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 
 export const testFirebase = async () => {
   try {
-    const ref = collection(firestore, "users");
+    const ref = collection(firestore, "Tickets");
     const docRef = await addDoc(ref, {
       first: "Ada",
       last: "Lovelace",
