@@ -38,3 +38,7 @@ yarn-error.*
 .env
 .env.development
 .env.production
+
+#npm and yarn lock files
+yarn.lock
+package-lock.json
