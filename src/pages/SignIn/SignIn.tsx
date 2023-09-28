@@ -1,11 +1,11 @@
 //import { handleAuthErrorMessage, logIn } from "@/hooks/auth/auth";
 import React from "react";
-import { Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import { styles } from "./SignIn.styles";
 import { FormValues } from "./SignIn.constants";
 import { useForm, FormProvider, SubmitHandler, SubmitErrorHandler } from "react-hook-form";
 import { TextInput } from "@/components/atoms/TextInput/TextInput";
-import { Button } from "@/components/atoms/CustomButton/Button";
+import { Button } from "@/components/atoms/Button/Button";
 
 export function SignIn(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
@@ -32,28 +32,30 @@ export function SignIn(): React.JSX.Element {
   // };
   return (
     <View style={styles.container}>
+      <View>
+        <Image source={require('@/assets/logo.png')} alt="Ticket scan logo"/>
+      </View>
       <FormProvider {...methods}>
-        <TextInput
-          name="email"
-          label="Email"
-          placeholder="jon.doe@email.com"
-          keyboardType="email-address"
-          rules={{ required: "Email is required!" }}
-        />
-        <View style={styles.input}>
+        <View style={styles.formContainer}>
+          <TextInput
+            name="email"
+            label="Email"
+            placeholder="jon.doe@email.com"
+            keyboardType="email-address"
+            rules={{ required: "Email is required!" }}
+          />
           <TextInput
             name="password"
             label="Password"
             secureTextEntry
             rules={{ required: "Password is required!" }}
           />
+          <Button onPress={methods.handleSubmit(onSubmit, onError)}>
+            <Text style={styles.buttonText}>Submit</Text>
+          </Button>
         </View>
       </FormProvider>
-      <View>
-        <Button onPress={methods.handleSubmit(onSubmit, onError)}>
-          <Text>Submit</Text>
-        </Button>
-      </View>
+      <View></View>
     </View>
   );
 }

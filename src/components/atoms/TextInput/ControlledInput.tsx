@@ -1,6 +1,6 @@
 import { useController } from "react-hook-form";
 import { TextInputProps } from "./TextInput.constants";
-import { View, TextInput as RNTextInput, Text } from "react-native";
+import { View, TextInput as RNTextInput, Text, Platform } from "react-native";
 import { styles } from "./TextInput.styles";
 import { useRef, useState } from "react";
 
@@ -33,7 +33,7 @@ export const ControlledInput = (props: TextInputProps) => {
       {label && <Text style={styles.label}>{label}</Text>}
       <View>
         <RNTextInput
-          style={styles.input}
+          style={[styles.input, Platform.OS === "web" ? styles.inputWeb : {}]}
           onChangeText={field.onChange}
           onBlur={field.onBlur}
           value={field.value}

@@ -4,24 +4,23 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 20,
     backgroundColor: Colors.background,
     alignItems: "center",
     justifyContent: "center",
+    gap: 60,
   },
-
-  input: {
-    margin: 20
+  logo: {
+    height: 160,
+    width: 260,
   },
-
-  control: {
-    marginTop: 10,
+  formContainer: {
+    display: "flex",
+    gap: 30,
+    width: "70%",
   },
-
-  error: {
-    marginTop: 10,
-    padding: 10,
-    color: "#fff",
-    backgroundColor: "#D54826FF",
+  buttonText: {
+    textAlign: "center",
+    fontWeight: "800",
+    color: Colors.white,
   },
 });

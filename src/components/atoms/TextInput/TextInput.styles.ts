@@ -4,27 +4,31 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   label: {
     marginLeft: 15,
-    marginTop: 10
+    marginTop: 10,
+    color: Colors.ligthGray,
+    fontWeight: "600",
   },
   container: {
-    height: 'auto',
+    height: "auto",
+    width: "100%",
     borderRadius: 10,
     backgroundColor: Colors.white,
     shadowColor: Colors.black,
-    shadowOffset: {width: 0, height: 4},
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
     borderWidth: 2,
-    borderColor: Colors.white
+    borderColor: Colors.white,
   },
   containerFocus: {
     borderWidth: 2,
-    borderColor: Colors.lightGreen
+    borderColor: Colors.lightGreen,
   },
   containerError: {},
   input: {
     margin: 15,
-    underlineColor: 'transparent',
-    outlineStyle: 'none'
-  }
+  },
+  inputWeb: {
+    outlineStyle: "none"
+  },
 });
