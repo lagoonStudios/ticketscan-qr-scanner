@@ -42,10 +42,14 @@ export function logOut() {
 
 export function handleAuthErrorMessage(message: string): string {
   console.log("error msg: ", message);
+  //firebase errors docs https://firebase.google.com/docs/auth/admin/errors?hl=es-419
 
   if (message.includes("invalid-email")) return "Email inválido";
 
   else if (message.includes("invalid-login-credentials")) return "Usuario o contraseña inválidos";
+
+  else if(message.includes("insufficient-permission")) return "No tienes permisos";
+  
 
   return "Error de autenticación";
 }
