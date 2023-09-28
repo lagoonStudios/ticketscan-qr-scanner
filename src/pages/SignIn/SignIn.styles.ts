@@ -1,16 +1,17 @@
+import { Colors } from "@/styles/colors";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
-    backgroundColor: "#fff",
+    backgroundColor: Colors.background,
     alignItems: "center",
     justifyContent: "center",
   },
 
-  controls: {
-    flex: 1,
+  input: {
+    margin: 20
   },
 
   control: {

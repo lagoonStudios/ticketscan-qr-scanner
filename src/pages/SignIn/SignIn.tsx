@@ -1,65 +1,58 @@
-import { handleAuthErrorMessage, logIn } from "@/hooks/auth/auth";
+//import { handleAuthErrorMessage, logIn } from "@/hooks/auth/auth";
 import React from "react";
-import { Text, TouchableOpacity, View, TextInput } from "react-native";
+import { Text, View } from "react-native";
 import { styles } from "./SignIn.styles";
+import { FormValues } from "./SignIn.constants";
+import { useForm, FormProvider, SubmitHandler, SubmitErrorHandler } from "react-hook-form";
+import { TextInput } from "@/components/atoms/TextInput/TextInput";
+import { Button } from "@/components/atoms/CustomButton/Button";
 
 export function SignIn(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
-  const [value, setValue] = React.useState({
-    email: "",
-    password: "",
-    error: "",
-  });
+  const { ...methods } = useForm({ defaultValues: { email: "", password: "" } });
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => console.log("submit: ", { data });
+
+  const onError: SubmitErrorHandler<FormValues> = (errors) => {
+    return console.log("Error: ", errors);
+  };
   // --- END: Hooks -----------------------------------------------------------------------
+  // const onSubmit = async (data: any) => {
+  //   console.log(data);
 
-  async function handleSignIn() {
-    if (value.email === "" || value.password === "") {
-      setValue({
-        ...value,
-        error: "Email y contraseña son requeridos.",
-      });
-      return;
-    }
-
-    try {
-      await logIn(value.email, value.password);
-    } catch (error: any) {
-      console.log("error: ", error);
-      setValue({
-        ...value,
-        error: handleAuthErrorMessage(error.message),
-      });
-    }
-  }
+  //   // try {
+  //   //   await logIn(value.email, value.password);
+  //   // } catch (error: any) {
+  //   //   console.log("error: ", error);
+  //   //   setValue({
+  //   //     ...value,
+  //   //     error: handleAuthErrorMessage(error.message),
+  //   //   });
+  //   // }
+  // };
   return (
     <View style={styles.container}>
-      <Text>Signin screen!</Text>
-
-      {!!value.error && (
-        <View style={styles.error}>
-          <Text>{value.error}</Text>
+      <FormProvider {...methods}>
+        <TextInput
+          name="email"
+          label="Email"
+          placeholder="jon.doe@email.com"
+          keyboardType="email-address"
+          rules={{ required: "Email is required!" }}
+        />
+        <View style={styles.input}>
+          <TextInput
+            name="password"
+            label="Password"
+            secureTextEntry
+            rules={{ required: "Password is required!" }}
+          />
         </View>
-      )}
-
-      <View style={styles.controls}>
-        <TextInput
-          placeholder="Email"
-          style={styles.control}
-          value={value.email}
-          onChangeText={(text) => setValue({ ...value, email: text })}
-        />
-
-        <TextInput
-          placeholder="Password"
-          style={styles.control}
-          value={value.password}
-          onChangeText={(text) => setValue({ ...value, password: text })}
-          secureTextEntry={true}
-        />
-
-        <TouchableOpacity style={styles.control} onPress={handleSignIn}>
-          <Text>Sign In</Text>
-        </TouchableOpacity>
+      </FormProvider>
+      <View>
+        <Button onPress={methods.handleSubmit(onSubmit, onError)}>
+          <Text>Submit</Text>
+        </Button>
       </View>
     </View>
   );

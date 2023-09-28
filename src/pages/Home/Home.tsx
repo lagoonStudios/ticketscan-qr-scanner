@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableHighlight } from "react-native";
+import { View, Text, Pressable } from "react-native";
 
 import { styles } from "./Home.styles";
 
@@ -14,9 +14,9 @@ export function Home(): React.JSX.Element {
 
       <View style={styles.sectionsContainer}>
         <View>
-          <TouchableHighlight onPress={() => logOut()}>
+          <Pressable onPress={() => logOut()}>
             <Text>LogOut</Text>
-          </TouchableHighlight>
+          </Pressable>
         </View>
       </View>
     </View>
