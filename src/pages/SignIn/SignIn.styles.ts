@@ -15,12 +15,21 @@ export const styles = StyleSheet.create({
   },
   formContainer: {
     display: "flex",
-    gap: 30,
+    gap: 20,
     width: "70%",
   },
   buttonText: {
     textAlign: "center",
     fontWeight: "800",
     color: Colors.white,
+  },
+  errorText: {
+    color: Colors.red,
+    marginTop: 5,
+    marginLeft: 15,
+    fontWeight: "600",
+  },
+  errroSpace: {
+    height: 22,
   },
 });
