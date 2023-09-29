@@ -24,11 +24,14 @@ export const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: Colors.lightGreen,
   },
-  containerError: {},
+  containerError: {
+    borderWidth: 2,
+    borderColor: Colors.red,
+  },
   input: {
     margin: 15,
   },
   inputWeb: {
-    outlineStyle: "none"
+    outlineStyle: "none",
   },
 });

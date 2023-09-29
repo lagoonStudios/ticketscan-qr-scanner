@@ -3,9 +3,13 @@ import { ControlledInput } from "./ControlledInput";
 import { TextInputProps } from "./TextInput.constants";
 
 export const TextInput = (props: TextInputProps) => {
-  const { name } = props;
-
+  // --- Hooks ----------------------------------------------------------------------------
   const formContext = useFormContext();
+  // --- END: Hooks -----------------------------------------------------------------------
+
+  // --- Data and handlers ----------------------------------------------------------------
+  const { name } = props;
+  // --- END: Data and handlers -----------------------------------------------------------
 
   if (!formContext || !name) {
     const msg = !formContext
