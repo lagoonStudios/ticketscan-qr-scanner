@@ -4,10 +4,13 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  contentView: {
     backgroundColor: Colors.background,
     alignItems: "center",
     justifyContent: "center",
     gap: 60,
+    height: "90%"
   },
   logo: {
     height: 160,
