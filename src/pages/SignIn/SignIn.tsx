@@ -52,12 +52,13 @@ export function SignIn(): React.JSX.Element {
             <View>
               <TextInput
                 name="email"
-                label="Email"
+                label="Correo electrónico"
                 inputMode="email"
                 rules={{
                   required: "Email is required!",
                   pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
                 }}
+                testID="email-input"
               />
               {!errors.email && <View style={styles.errroSpace}></View>}
               {errors.email && errors.email.type === "required" && (
@@ -74,6 +75,7 @@ export function SignIn(): React.JSX.Element {
                 label="Password"
                 secureTextEntry
                 rules={{ required: "Password is required!" }}
+                testID="password-input"
               />
               {!errors.password && <View style={styles.errroSpace}></View>}
               {errors.password && errors.password.type === "required" && (
