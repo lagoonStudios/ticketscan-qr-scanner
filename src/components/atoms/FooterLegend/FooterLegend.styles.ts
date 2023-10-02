@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     display: "flex",
     alignContent: "center",
     alignItems: "center",
-    marginBottom: 15
+    marginBottom: 15,
   },
   text: {
     color: Colors.lightGreen,
