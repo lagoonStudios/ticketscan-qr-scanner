@@ -42,3 +42,6 @@ yarn-error.*
 #npm and yarn lock files
 yarn.lock
 package-lock.json
+
+#tests
+coverage/**/*
