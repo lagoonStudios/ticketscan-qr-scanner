@@ -16,5 +16,6 @@
     ],
     "fakeTimers": {
         "enableGlobally": true
-    }
+    },
+    "resetMocks": true
   }
