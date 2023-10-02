@@ -1,20 +1,27 @@
-import { SignIn } from "../SignIn";
-import { screen } from "@testing-library/react-native";
-import setupComponent from "@/utils/tests-utils";
 import * as firebaseAuth from "firebase/auth";
-import * as localAuth from "@/hooks/auth/auth";
 import Toast from "react-native-toast-message";
+import { screen } from "@testing-library/react-native";
+
+import * as localAuth from "@/hooks/auth/auth";
+import setupComponent from "@/utils/tests-utils";
+
+import { SignIn } from "../SignIn";
 
 describe("<SignIn />", () => {
-  test("Renders propperly / has 2 childs", () => {
+  test("Should render propperly / has 2 childs", () => {
     const tree = setupComponent(<SignIn />).toJSON();
     expect(tree.children.length).toBe(2);
   });
 
+  test("Should match snapshot", () => {
+    const tree = setupComponent(<SignIn />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  
   test("Should mark all fields as required", async () => {
     const { user } = setupComponent(<SignIn />);
 
-    await user.press(screen.getByText("Submit"));
+    await user.press(screen.getByTestId("submit-login"));
     const requiredTexts = screen.getAllByText("Requerido");
 
     expect(requiredTexts.length).toBe(2);
@@ -24,7 +31,7 @@ describe("<SignIn />", () => {
     const { user } = setupComponent(<SignIn />);
 
     await user.type(screen.getByTestId("email-input"), "invalidEmail");
-    await user.press(screen.getByText("Submit"));
+    await user.press(screen.getByTestId("submit-login"));
 
     expect(screen.getByText("Email Inválido")).toBeTruthy();
   });
@@ -34,7 +41,7 @@ describe("<SignIn />", () => {
 
     await user.type(screen.getByTestId("email-input"), "invalidEmail.com");
     await user.type(screen.getByTestId("password-input"), "");
-    await user.press(screen.getByText("Submit"));
+    await user.press(screen.getByTestId("submit-login"));
 
     expect(screen.getByText("Email Inválido")).toBeTruthy();
     expect(screen.getByText("Requerido")).toBeTruthy();
@@ -46,7 +53,7 @@ describe("<SignIn />", () => {
 
     await user.type(screen.getByTestId("email-input"), "validemail@asd.com");
     await user.type(screen.getByTestId("password-input"), "123456");
-    await user.press(screen.getByText("Submit"));
+    await user.press(screen.getByTestId("submit-login"));
 
     expect(login).toHaveBeenCalledTimes(1);
   });
@@ -55,9 +62,9 @@ describe("<SignIn />", () => {
     const { user } = setupComponent(<SignIn />);
     const login = jest.spyOn(firebaseAuth, "signInWithEmailAndPassword");
 
-    await user.type(screen.getByTestId("email-input"), "");
-    await user.type(screen.getByTestId("password-input"), "");
-    await user.press(screen.getByText("Submit"));
+    await user.type(screen.getByTestId("email-input"), "lorem");
+    await user.type(screen.getByTestId("password-input"), "123");
+    await user.press(screen.getByTestId("submit-login"));
 
     expect(login).toHaveBeenCalledTimes(0);
   });
@@ -72,7 +79,7 @@ describe("<SignIn />", () => {
 
     await user.type(screen.getByTestId("email-input"), "validemail@asd.com");
     await user.type(screen.getByTestId("password-input"), "123456");
-    await user.press(screen.getByText("Submit"));
+    await user.press(screen.getByTestId("submit-login"));
 
     expect(toast).toHaveBeenCalledTimes(1);
     expect(handleErrorMessagee).toHaveBeenCalledTimes(1);

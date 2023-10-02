@@ -8,7 +8,7 @@ import { handleAuthErrorMessage, logIn } from "@/hooks/auth/auth";
 import { styles } from "./SignIn.styles";
 import { FormValues } from "./SignIn.constants";
 
-import { AntDesign } from "@expo/vector-icons";
+// import { AntDesign } from "@expo/vector-icons";
 import { Image, ScrollView, Text, View } from "react-native";
 import { Button } from "@/components/atoms/Button/Button";
 import { TextInput } from "@/components/atoms/TextInput/TextInput";
@@ -82,11 +82,11 @@ export function SignIn(): React.JSX.Element {
                 <Text style={styles.errorText}>Requerido</Text>
               )}
             </View>
-            <Button disabled={loginMutation.isLoading} onPress={methods.handleSubmit(onSubmit)}>
-              {loginMutation.isLoading && (
+            <Button disabled={loginMutation.isLoading} onPress={methods.handleSubmit(onSubmit)} testID="submit-login">
+              {/* {loginMutation.isLoading && (
                 <AntDesign style={styles.buttonText} name="loading1" size={16} color="black" />
-              )}
-              {!loginMutation.isLoading && <Text style={styles.buttonText}>Submit</Text>}
+              )} */}
+              {!loginMutation.isLoading && <Text style={styles.buttonText}>Ingresar</Text>}
             </Button>
           </View>
         </FormProvider>
