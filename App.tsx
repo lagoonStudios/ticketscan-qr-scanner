@@ -10,7 +10,7 @@ import Toast from "react-native-toast-message";
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <StatusBar style="auto" />
+      <StatusBar  />
       <RootNavigation />
 
       {/* This must be tha last import */}
