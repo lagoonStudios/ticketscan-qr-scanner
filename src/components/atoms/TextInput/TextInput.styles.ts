@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
+    elevation: 10,
     borderWidth: 2,
     borderColor: Colors.white,
   },

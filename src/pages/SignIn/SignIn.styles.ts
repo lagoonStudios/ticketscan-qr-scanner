@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   contentView: {
-    
     alignItems: "center",
     justifyContent: "center",
     gap: 60,

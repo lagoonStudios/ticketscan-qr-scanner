@@ -50,6 +50,16 @@ export function handleAuthErrorMessage(message: string): string {
 
   else if(message.includes("insufficient-permission")) return "No tienes permisos";
   
+  else if(message.includes("user-disabled")) return "El usuario está deshabilitado";
+
+  else if(message.includes("user-not-found")) return "El usuario no existe";
+
+  else if(message.includes("email-already-in-use")) return "El email ya está en uso";
+
+  else if(message.includes("app-deleted")) return "La aplicación ha sido eliminada";
+
+  else if(message.includes("network-request-failed")) return "Problemas de conexión, revisa tu conexión a internet";
+  
 
   return "Error de autenticación";
 }

@@ -1,23 +1,40 @@
 import { StyleSheet } from "react-native";
 import { Colors } from "@/styles/colors";
+import Constants from 'expo-constants';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Colors.background,
+  },
+  contentView: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: Colors.white,
-    margin: 40,
+    gap: 40,
+    height: "90%",
   },
-  title: { fontSize: 32, fontWeight: "bold", margin: 20 },
-  sectionsContainer: {
+  buttonText: {
+    textAlign: "center",
+    fontWeight: "800",
+    color: Colors.white,
+  },
+  logoutButton: {
+    position: "absolute",
+    top: Constants.statusBarHeight + 10,
+    right: 10,
+    zIndex: 10
+  },
+  logoutText: {
+    color: Colors.ligthGray,
+  },
+  footer: {
     display: "flex",
-    flexDirection: "row",
-    width: "100%",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    gap: 26,
+    alignContent: "center",
+    alignItems: "center"
   },
-  subHeader: { fontSize: 16, margin: 10, fontWeight: "500", textAlign: "center" },
-  listItem: { margin: 5 },
+  logo: {
+    height: 73,
+    width: 100,
+    resizeMode: "contain"
+  }
 });
