@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { View, Text, Image, ScrollView, Pressable, Alert } from "react-native";
 
 import { styles } from "./Home.styles";
@@ -9,15 +10,21 @@ import { FooterLegent } from "@/components/atoms/FooterLegend/FooterLegend";
 
 export function Home(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
+  const navigation = useNavigation();
   // --- END: Hooks -----------------------------------------------------------------------
+
 
   // --- Data and handlers ----------------------------------------------------------------
   const handleLogout = () => {
     Alert.alert("Seguro que deseas cerrar sesión?", "", [
       { text: "Cancelar", style: "cancel" },
       { text: "Aceptar", onPress: logOut },
-    ])
-  }
+    ]);
+  };
+
+  const handleGoToScanner = () => {
+    navigation.navigate("Scanner");
+  };
   // --- END: Data and handlers ----------------------------------------------------------
   return (
     <View style={styles.container}>
@@ -25,7 +32,7 @@ export function Home(): React.JSX.Element {
         <Text style={styles.logoutText}>Cerrar sesion</Text>
       </Pressable>
       <ScrollView contentContainerStyle={styles.contentView}>
-        <Button>
+        <Button onPress={handleGoToScanner}>
           <Text style={styles.buttonText}>Escanear código QR</Text>
         </Button>
         <Button>
