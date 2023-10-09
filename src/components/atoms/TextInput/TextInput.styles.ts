@@ -30,8 +30,5 @@ export const styles = StyleSheet.create({
   },
   input: {
     margin: 15,
-  },
-  inputWeb: {
-    outlineStyle: "none",
-  },
+  }
 });

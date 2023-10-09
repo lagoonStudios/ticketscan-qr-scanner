@@ -7,11 +7,10 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   contentView: {
-    
     alignItems: "center",
     justifyContent: "center",
     gap: 60,
-    height: "90%"
+    height: "90%",
   },
   logo: {
     height: 160,

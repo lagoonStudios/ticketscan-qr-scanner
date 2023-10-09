@@ -3,7 +3,7 @@ import { View, Text, Pressable } from "react-native";
 
 import { styles } from "./Home.styles";
 
-import { logOut } from "@/hooks/auth/auth";
+import { logOut } from "@/hooks/auth";
 
 export function Home(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------

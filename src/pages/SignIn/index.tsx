@@ -3,16 +3,16 @@ import Toast from "react-native-toast-message";
 import { useMutation } from "@tanstack/react-query";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 
-import { handleAuthErrorMessage, logIn } from "@/hooks/auth/auth";
+import { handleAuthErrorMessage, logIn } from "@/hooks/auth";
 
 import { styles } from "./SignIn.styles";
 import { FormValues } from "./SignIn.constants";
 
 // import { AntDesign } from "@expo/vector-icons";
 import { Image, ScrollView, Text, View } from "react-native";
-import { Button } from "@/components/atoms/Button/Button";
-import { TextInput } from "@/components/atoms/TextInput/TextInput";
-import { FooterLegent } from "@/components/atoms/FooterLegend/FooterLegend";
+import { Button } from "@/components/atoms/Button";
+import { TextInput } from "@/components/atoms/TextInput";
+import { FooterLegent } from "@/components/atoms/FooterLegend";
 
 export function SignIn(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
@@ -83,9 +83,6 @@ export function SignIn(): React.JSX.Element {
               )}
             </View>
             <Button disabled={loginMutation.isLoading} onPress={methods.handleSubmit(onSubmit)} testID="submit-login">
-              {/* {loginMutation.isLoading && (
-                <AntDesign style={styles.buttonText} name="loading1" size={16} color="black" />
-              )} */}
               {!loginMutation.isLoading && <Text style={styles.buttonText}>Ingresar</Text>}
             </Button>
           </View>

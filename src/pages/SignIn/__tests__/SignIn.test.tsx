@@ -2,10 +2,10 @@ import * as firebaseAuth from "firebase/auth";
 import Toast from "react-native-toast-message";
 import { screen } from "@testing-library/react-native";
 
-import * as localAuth from "@/hooks/auth/auth";
+import * as localAuth from "@/hooks/auth";
 import setupComponent from "@/utils/tests-utils";
 
-import { SignIn } from "../SignIn";
+import { SignIn } from "..";
 
 describe("<SignIn />", () => {
   test("Should render propperly / has 2 childs", () => {
