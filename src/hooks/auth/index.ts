@@ -68,7 +68,7 @@ export function logOut() {
  * @param message firebase error message
  * @returns Custom error message
  */
-export function handleAuthErrorMessage(message: string): string {
+export function useAuthErrorMessage(message: string): string {
   //firebase errors docs https://firebase.google.com/docs/auth/admin/errors?hl=es-419
   const errorMessageMap: { [key: string]: string } = {
     "invalid-email": "Email inválido",

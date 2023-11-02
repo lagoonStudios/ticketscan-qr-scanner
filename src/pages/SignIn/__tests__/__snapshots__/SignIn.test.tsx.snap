@@ -84,7 +84,6 @@ exports[`<SignIn /> Should match snapshot 1`] = `
                     {
                       "margin": 15,
                     },
-                    {},
                   ]
                 }
                 testID="email-input"
@@ -149,7 +148,6 @@ exports[`<SignIn /> Should match snapshot 1`] = `
                     {
                       "margin": 15,
                     },
-                    {},
                   ]
                 }
                 testID="password-input"

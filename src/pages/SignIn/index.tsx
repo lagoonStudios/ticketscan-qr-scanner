@@ -3,7 +3,7 @@ import Toast from "react-native-toast-message";
 import { useMutation } from "@tanstack/react-query";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 
-import { handleAuthErrorMessage, logIn } from "@/hooks/auth";
+import { useAuthErrorMessage, logIn } from "@/hooks/auth";
 
 import { styles } from "./SignIn.styles";
 import { FormValues } from "./SignIn.constants";
@@ -24,7 +24,7 @@ export function SignIn(): React.JSX.Element {
       onError: (error: any) => {
         Toast.show({
           type: "error",
-          text1: handleAuthErrorMessage(error.message),
+          text1: useAuthErrorMessage(error.message),
         });
       },
     }
