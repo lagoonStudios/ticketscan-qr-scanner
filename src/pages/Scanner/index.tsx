@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Alert, StyleSheet } from "react-native";
 import { BarCodeScanner, PermissionStatus } from "expo-barcode-scanner";
 import { Button } from "@/components/atoms/Button";
+import { BackButton } from "@/components/atoms/BackButton";
+import { styles } from "./Scanner.styles";
 
 export function Scanner(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
@@ -42,6 +44,7 @@ export function Scanner(): React.JSX.Element {
 
   return (
     <View style={styles.container}>
+      <BackButton containerStyles={styles.backButton} />
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={styles.scanner}
@@ -52,15 +55,4 @@ export function Scanner(): React.JSX.Element {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  scanner: {
-    position: "relative",
-    height: "50%",
-    width: "100%",
-  },
-});
+

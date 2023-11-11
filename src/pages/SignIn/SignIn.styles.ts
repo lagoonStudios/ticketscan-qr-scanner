@@ -21,11 +21,6 @@ export const styles = StyleSheet.create({
     gap: 20,
     width: "70%",
   },
-  buttonText: {
-    textAlign: "center",
-    fontWeight: "800",
-    color: Colors.white.default,
-  },
   errorText: {
     color: Colors.red.default,
     marginTop: 5,

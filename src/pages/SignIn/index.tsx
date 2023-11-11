@@ -12,6 +12,7 @@ import { Button } from "@/components/atoms/Button";
 import { TextInput } from "@/components/atoms/TextInput";
 import { Image, ScrollView, Text, View } from "react-native";
 import { FooterLegend } from "@/components/atoms/FooterLegend";
+import { AppLogo } from "@/components/atoms/AppLogo";
 
 export function SignIn(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
@@ -43,9 +44,7 @@ export function SignIn(): React.JSX.Element {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.contentView}>
-        <View>
-          <Image source={require("@/assets/logo.png")} alt="Ticket scan logo" />
-        </View>
+        <AppLogo width={300} height={300} />
         <FormProvider {...methods}>
           <View style={styles.formContainer}>
             <View>
@@ -59,7 +58,7 @@ export function SignIn(): React.JSX.Element {
                 }}
                 testID="email-input"
               />
-              {!errors.email && <View style={styles.errroSpace}></View>}
+              {!errors.email && <View style={styles.errorSpace}></View>}
               {errors.email && errors.email.type === "required" && (
                 <Text style={styles.errorText}>Requerido</Text>
               )}
@@ -85,7 +84,7 @@ export function SignIn(): React.JSX.Element {
               disabled={loginMutation.isLoading}
               onPress={methods.handleSubmit(onSubmit)}
               testID="submit-login">
-              {!loginMutation.isLoading && <Text style={styles.buttonText}>Ingresar</Text>}
+              Ingresar
             </Button>
           </View>
         </FormProvider>

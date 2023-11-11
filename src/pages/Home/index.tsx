@@ -8,6 +8,7 @@ import { FooterLegend } from "@/components/atoms/FooterLegend";
 
 import { styles } from "./Home.styles";
 import { Link } from "@react-navigation/native";
+import { AppLogo } from "@/components/atoms/AppLogo";
 
 export function Home({ navigation }: any): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
@@ -26,7 +27,9 @@ export function Home({ navigation }: any): React.JSX.Element {
 
         <Button>Registro manual</Button>
       </View>
-      <FooterLegend />
+      <FooterLegend>
+        <AppLogo containerStyle={{ alignItems: "flex-end" }} height={100} width={100} />
+      </FooterLegend>
     </View>
   );
 }
