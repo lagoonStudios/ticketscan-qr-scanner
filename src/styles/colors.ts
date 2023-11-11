@@ -7,7 +7,7 @@ export const Colors = Object.freeze({
   white: { default: "#FFFFFF" },
   black: { default: "#000000" },
   green: {
-    default: "#2FF5A3",
+    default: "#288F5B",
     light: "#73C69C",
   },
   purple: {

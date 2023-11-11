@@ -11,6 +11,14 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 10
+    elevation: 10,
+  },
+  disabled: {
+    opacity: 0.5,
+  },
+  buttonText: {
+    textAlign: "center",
+    fontWeight: "800",
+    color: Colors.white.default,
   },
 });

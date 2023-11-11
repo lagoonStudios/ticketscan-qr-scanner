@@ -1,4 +1,4 @@
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 
 import { ButtonProps } from "./Button.constants";
 
@@ -9,11 +9,11 @@ export function Button(props: ButtonProps) {
 
   return (
     <TouchableOpacity
-      style={styles.button}
+      style={[styles.button, disabled ? styles.disabled : null]}
       onPress={onPress}
       disabled={disabled}
       {...buttonProps}>
-      {children}
+      <Text style={styles.buttonText}>{children}</Text>
     </TouchableOpacity>
   );
 }
