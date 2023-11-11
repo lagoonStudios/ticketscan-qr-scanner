@@ -1,3 +1,5 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 import {
   REACT_APP_FB_apiKey,
   REACT_APP_FB_authDomain,
@@ -7,8 +9,6 @@ import {
   REACT_APP_FB_appId,
   REACT_APP_FB_measurementId,
 } from "@env";
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
 
 export const firebaseConfig = {
   apiKey: REACT_APP_FB_apiKey,

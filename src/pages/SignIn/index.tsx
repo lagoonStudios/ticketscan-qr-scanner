@@ -8,11 +8,10 @@ import { useAuthErrorMessage, logIn } from "@/hooks/auth";
 import { styles } from "./SignIn.styles";
 import { FormValues } from "./SignIn.constants";
 
-// import { AntDesign } from "@expo/vector-icons";
-import { Image, ScrollView, Text, View } from "react-native";
 import { Button } from "@/components/atoms/Button";
 import { TextInput } from "@/components/atoms/TextInput";
-import { FooterLegent } from "@/components/atoms/FooterLegend";
+import { Image, ScrollView, Text, View } from "react-native";
+import { FooterLegend } from "@/components/atoms/FooterLegend";
 
 export function SignIn(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
@@ -77,18 +76,21 @@ export function SignIn(): React.JSX.Element {
                 rules={{ required: "Password is required!" }}
                 testID="password-input"
               />
-              {!errors.password && <View style={styles.errroSpace}></View>}
+              {!errors.password && <View style={styles.errorSpace}></View>}
               {errors.password && errors.password.type === "required" && (
                 <Text style={styles.errorText}>Requerido</Text>
               )}
             </View>
-            <Button disabled={loginMutation.isLoading} onPress={methods.handleSubmit(onSubmit)} testID="submit-login">
+            <Button
+              disabled={loginMutation.isLoading}
+              onPress={methods.handleSubmit(onSubmit)}
+              testID="submit-login">
               {!loginMutation.isLoading && <Text style={styles.buttonText}>Ingresar</Text>}
             </Button>
           </View>
         </FormProvider>
       </ScrollView>
-      <FooterLegent />
+      <FooterLegend />
     </View>
   );
 }

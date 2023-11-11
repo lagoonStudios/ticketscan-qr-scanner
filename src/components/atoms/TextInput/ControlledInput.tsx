@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useController, useFormContext } from "react-hook-form";
-import { View, TextInput as RNTextInput, Text, Platform } from "react-native";
+import { View, TextInput as RNTextInput, Text } from "react-native";
 
 import { styles } from "./TextInput.styles";
 import { TextInputProps } from "./TextInput.constants";

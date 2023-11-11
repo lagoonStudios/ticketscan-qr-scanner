@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Alert, StyleSheet } from "react-native";
 import { BarCodeScanner, PermissionStatus } from "expo-barcode-scanner";
-import { Button } from "@/components/atoms/Button/Button";
+import { Button } from "@/components/atoms/Button";
 
 export function Scanner(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
