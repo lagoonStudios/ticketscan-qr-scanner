@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Alert, StyleSheet } from "react-native";
+import { View, Text, Alert } from "react-native";
 import { BarCodeScanner, PermissionStatus } from "expo-barcode-scanner";
-import { Button } from "@/components/atoms/Button";
 import { BackButton } from "@/components/atoms/BackButton";
 import { styles } from "./Scanner.styles";
+import { AppLogo } from "@/components/atoms/AppLogo";
 
 export function Scanner(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
@@ -24,6 +24,7 @@ export function Scanner(): React.JSX.Element {
   const handleBarCodeScanned = ({ data }: { data: string }) => {
     setScanned(true);
     Alert.alert(`Bar code data ${data} has been scanned!`);
+    setScanned(false);
   };
   // --- END: Data and handlers ----------------------------------------------------------
 
@@ -45,14 +46,14 @@ export function Scanner(): React.JSX.Element {
   return (
     <View style={styles.container}>
       <BackButton containerStyles={styles.backButton} />
-      <BarCodeScanner
-        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-        style={styles.scanner}
-        barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}></BarCodeScanner>
+      <AppLogo height={100} width={100} />
 
-      {scanned && <Button onPress={() => setScanned(false)}>Escanear</Button>}
+      {!scanned && (
+        <BarCodeScanner
+          onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+          style={styles.scanner}
+          barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}></BarCodeScanner>
+      )}
     </View>
   );
 }
-
-

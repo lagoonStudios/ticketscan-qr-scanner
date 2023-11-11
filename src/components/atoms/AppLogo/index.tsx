@@ -2,12 +2,12 @@ import { Image, View } from "react-native";
 import { AppLogoProps } from "./AppLogo.constants";
 
 export function AppLogo(props: AppLogoProps): React.JSX.Element {
-  const { containerStyle, height, width } = props;
+  const { height, width } = props;
   return (
-    <View style={containerStyle}>
+    <View>
       <Image
         source={require("@/assets/logo.png")}
-        style={{ width: width, height: height }}
+        style={{ width: width, height: height, alignSelf: "center" }}
         resizeMode="contain"
         alt="Ticket scan logo"
       />

@@ -18,4 +18,10 @@ export const styles = StyleSheet.create({
     top: 0,
     left: 5,
   },
+  placeHolderView:{
+    borderRadius: 20,
+  },
+  qrIcon:{
+    
+  }
 });
