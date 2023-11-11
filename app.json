@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Ticket Scan",
-    "slug": "ticket-scan",
+    "name": "Ticket Scan QR Scanner",
+    "slug": "ticket-scan-qr",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/logo.png",
@@ -24,7 +24,7 @@
       }
     },
     "web": {
-      "favicon": "./src/assets/favicon.png"
+      "favicon": "./src/assets/logo.png"
     },
     "plugins": [
       [

@@ -11,17 +11,16 @@ export default function AppStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen
-          name="Scanner"
-          component={Scanner}
-          options={{ cardOverlayEnabled: false, headerShown: false }}
-        />
         <Stack.Screen
           name="Home"
           component={Home}
           options={{ cardOverlayEnabled: false, headerShown: false }}
         />
-         
+        <Stack.Screen
+          name="Scanner"
+          component={Scanner}
+          options={{ cardOverlayEnabled: false, headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

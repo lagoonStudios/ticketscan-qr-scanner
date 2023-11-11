@@ -1,5 +1,5 @@
 {
-  "name": "ticket-scann-qr",
+  "name": "ticket-scan-qr",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {

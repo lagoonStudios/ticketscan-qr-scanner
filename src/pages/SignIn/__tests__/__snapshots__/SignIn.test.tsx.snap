@@ -47,6 +47,7 @@ exports[`<SignIn /> Should match snapshot 1`] = `
                   "borderColor": "#FFFFFF",
                   "borderRadius": 10,
                   "borderWidth": 2,
+                  "elevation": 10,
                   "height": "auto",
                   "shadowColor": "#000000",
                   "shadowOffset": {
@@ -91,13 +92,7 @@ exports[`<SignIn /> Should match snapshot 1`] = `
               />
             </View>
           </View>
-          <View
-            style={
-              {
-                "height": 22,
-              }
-            }
-          />
+          <View />
         </View>
         <View>
           <View
@@ -111,6 +106,7 @@ exports[`<SignIn /> Should match snapshot 1`] = `
                   "borderColor": "#FFFFFF",
                   "borderRadius": 10,
                   "borderWidth": 2,
+                  "elevation": 10,
                   "height": "auto",
                   "shadowColor": "#000000",
                   "shadowOffset": {
@@ -168,7 +164,7 @@ exports[`<SignIn /> Should match snapshot 1`] = `
             {
               "busy": undefined,
               "checked": undefined,
-              "disabled": undefined,
+              "disabled": false,
               "expanded": undefined,
               "selected": undefined,
             }
@@ -184,9 +180,7 @@ exports[`<SignIn /> Should match snapshot 1`] = `
           accessible={true}
           collapsable={false}
           focusable={true}
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -194,17 +188,20 @@ exports[`<SignIn /> Should match snapshot 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            [
-              {
-                "opacity": 1,
+            {
+              "backgroundColor": "#288F5B",
+              "borderRadius": 10,
+              "elevation": 10,
+              "opacity": 1,
+              "padding": 15,
+              "shadowColor": "#000000",
+              "shadowOffset": {
+                "height": 4,
+                "width": 0,
               },
-              {
-                "backgroundColor": "#288F5B",
-                "borderRadius": 20,
-                "padding": 15,
-              },
-              {},
-            ]
+              "shadowOpacity": 0.25,
+              "shadowRadius": 4,
+            }
           }
           testID="submit-login"
         >
