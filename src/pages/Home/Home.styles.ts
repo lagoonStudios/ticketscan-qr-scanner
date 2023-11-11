@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     width: "100%",
-    justifyContent: "space-between",
+    justifyContent: "center",
     flexWrap: "wrap",
     gap: 26,
   },

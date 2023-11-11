@@ -1,30 +1,20 @@
-import { QueryClientProvider } from "@tanstack/react-query";
-import { Home } from "./src/pages/Home/Home";
+import "@/lib/firebase/firebaseConfig";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
-import { queryClient } from "@/lib/react-query/react-query";
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { firebaseConfig } from "@/lib/firebase/firebaseConfig";
+import { QueryClientProvider } from "@tanstack/react-query";
 
-const firebase = initializeApp(firebaseConfig);
-const firestore = getFirestore(firebase);
+import { queryClient } from "@/lib/react-query/react-query";
+
+import RootNavigation from "@/navigation";
+import Toast from "react-native-toast-message";
 
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        <Home />
-      </View>
+      <StatusBar style="auto" />
+      <RootNavigation />
+
+      {/* This must be tha last import */}
+      <Toast />
     </QueryClientProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-export { firestore };
