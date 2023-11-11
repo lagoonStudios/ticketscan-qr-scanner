@@ -2,10 +2,10 @@ import * as firebaseAuth from "firebase/auth";
 import Toast from "react-native-toast-message";
 import { screen } from "@testing-library/react-native";
 
-import * as localAuth from "@/hooks/auth/auth";
+import * as localAuth from "@/hooks/auth";
 import setupComponent from "@/utils/tests-utils";
 
-import { SignIn } from "../SignIn";
+import { SignIn } from "..";
 
 describe("<SignIn />", () => {
   test("Should render propperly / has 2 childs", () => {
@@ -17,7 +17,7 @@ describe("<SignIn />", () => {
     const tree = setupComponent(<SignIn />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-  
+
   test("Should mark all fields as required", async () => {
     const { user } = setupComponent(<SignIn />);
 
@@ -74,8 +74,9 @@ describe("<SignIn />", () => {
     (firebaseAuth.signInWithEmailAndPassword as jest.Mock).mockRejectedValue(
       new Error("invalid-email")
     );
+
     const toast = jest.spyOn(Toast, "show");
-    const handleErrorMessagee = jest.spyOn(localAuth, "handleAuthErrorMessage");
+    const handleErrorMessagee = jest.spyOn(localAuth, "useAuthErrorMessage");
 
     await user.type(screen.getByTestId("email-input"), "validemail@asd.com");
     await user.type(screen.getByTestId("password-input"), "123456");
