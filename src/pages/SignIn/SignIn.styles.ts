@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
     marginLeft: 15,
     fontWeight: "600",
   },
-  errroSpace: {
+  errorSpace: {
     height: 22,
   },
 });

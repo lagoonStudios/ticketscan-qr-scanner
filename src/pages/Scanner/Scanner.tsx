@@ -45,7 +45,7 @@ export function Scanner(): React.JSX.Element {
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={styles.scanner}
-        barCodeTypes={BarCodeScanner.Constants.BarCodeType.qr}></BarCodeScanner>
+        barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}></BarCodeScanner>
 
       {scanned && <Button onPress={() => setScanned(false)} />}
     </View>
