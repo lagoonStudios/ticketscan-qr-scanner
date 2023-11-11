@@ -47,7 +47,7 @@ export function Scanner(): React.JSX.Element {
         style={styles.scanner}
         barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}></BarCodeScanner>
 
-      {scanned && <Button onPress={() => setScanned(false)} />}
+      {scanned && <Button onPress={() => setScanned(false)}>Escanear</Button>}
     </View>
   );
 }
@@ -62,5 +62,5 @@ const styles = StyleSheet.create({
     position: "relative",
     height: "50%",
     width: "100%",
-  }
+  },
 });

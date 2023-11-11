@@ -1,24 +1,32 @@
 import React from "react";
-import { View, Text, Pressable } from "react-native";
+import { View } from "react-native";
+
+import { Button } from "@/components/atoms/Button";
+import { EventBanner } from "@/components/atoms/EventBanner";
+import { LogoutButton } from "@/components/atoms/LogoutButton";
+import { FooterLegend } from "@/components/atoms/FooterLegend";
 
 import { styles } from "./Home.styles";
+import { Link } from "@react-navigation/native";
 
-import { logOut } from "@/hooks/auth";
-import { Button } from "@/components/atoms/Button";
-import { LogoutButton } from "@/components/atoms/LogoutButton";
-
-export function Home(): React.JSX.Element {
+export function Home({ navigation }: any): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
-  var asd = "asd";
+  const handleNavigate = () => {
+    navigation.navigate("Scanner");
+  };
   // --- END: Hooks -----------------------------------------------------------------------
   return (
     <View style={styles.container}>
       <LogoutButton containerStyles={styles.logoutButton} />
       <View style={styles.sectionsContainer}>
-        <Button>Escanear código QR</Button>
+        <EventBanner source={require("@/assets/logo.png")} />
+        <Link to="Scanner">
+          <Button onPress={() => handleNavigate()}>Escanear código QR</Button>
+        </Link>
 
-        <Button>Escanear código QR</Button>
+        <Button>Registro manual</Button>
       </View>
+      <FooterLegend />
     </View>
   );
 }
