@@ -24,10 +24,10 @@ export const styles = StyleSheet.create({
   buttonText: {
     textAlign: "center",
     fontWeight: "800",
-    color: Colors.white,
+    color: Colors.white.default,
   },
   errorText: {
-    color: Colors.red,
+    color: Colors.red.default,
     marginTop: 5,
     marginLeft: 15,
     fontWeight: "600",

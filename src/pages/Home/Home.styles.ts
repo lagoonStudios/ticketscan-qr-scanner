@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
   buttonText: {
     textAlign: "center",
     fontWeight: "800",
-    color: Colors.white,
+    color: Colors.white.default,
   },
   logoutButton: {
     position: "absolute",
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     zIndex: 10,
   },
   logoutText: {
-    color: Colors.ligthGray,
+    color: Colors.gray.light,
   },
   footer: {
     display: "flex",

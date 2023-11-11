@@ -1,10 +1,24 @@
-export const Colors = {
-  white: "#FFFFFF",
-  black: "#000000",
+export const Colors = Object.freeze({
+  primary: "",
+  secondary: "",
+  tertiary: "",
   transparent: "transparent",
   background: "#EFFBF4",
-  lightGreen: "#73C69C",
-  green: "#288F5B",
-  red: "#F00",
-  ligthGray: "#0000004d",
-};
+  white: { default: "#FFFFFF" },
+  black: { default: "#000000" },
+  green: {
+    default: "#2FF5A3",
+    light: "#73C69C",
+  },
+  purple: {
+    default: "#A408FF",
+  },
+  blue: {
+    default: "#1760EC",
+  },
+  red: { default: "#F00" },
+  gray: {
+    default: "#0000004d",
+    light: "#0000004d",
+  },
+});

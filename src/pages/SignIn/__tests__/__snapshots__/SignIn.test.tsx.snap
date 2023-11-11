@@ -189,7 +189,7 @@ exports[`<SignIn /> Should match snapshot 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             {
-              "backgroundColor": "#288F5B",
+              "backgroundColor": "#2FF5A3",
               "borderRadius": 10,
               "elevation": 10,
               "opacity": 1,

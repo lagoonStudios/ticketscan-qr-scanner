@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     marginBottom: 15,
   },
   text: {
-    color: Colors.lightGreen,
+    color: Colors.green.light,
     textAlign: "center",
   },
 });
