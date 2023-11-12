@@ -9,10 +9,10 @@ import { styles } from "./SignIn.styles";
 import { FormValues } from "./SignIn.constants";
 
 import { Button } from "@/components/atoms/Button";
-import { TextInput } from "@/components/atoms/TextInput";
-import { Image, ScrollView, Text, View } from "react-native";
-import { FooterLegend } from "@/components/atoms/FooterLegend";
 import { AppLogo } from "@/components/atoms/AppLogo";
+import { ScrollView, Text, View } from "react-native";
+import { TextInput } from "@/components/atoms/TextInput";
+import { FooterLegend } from "@/components/atoms/FooterLegend";
 
 export function SignIn(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------

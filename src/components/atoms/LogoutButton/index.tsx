@@ -10,7 +10,7 @@ export function LogoutButton(props: LogOutButtonProps): React.JSX.Element {
   return (
     <View style={containerStyles}>
       <Pressable {...pressableProps} style={styles.logoutButton} onPress={() => logOut()}>
-        <Text style={(styles.logoutText, textStyles)}>LogOut</Text>
+        <Text style={(styles.logoutText, textStyles)}>Cerrar sesión</Text>
       </Pressable>
     </View>
   );

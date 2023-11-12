@@ -1,14 +1,29 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Alert } from "react-native";
+import { useMutation } from "@tanstack/react-query";
+import { collection, doc } from "firebase/firestore";
+import { firestore } from "@/lib/firebase/firebaseConfig";
 import { BarCodeScanner, PermissionStatus } from "expo-barcode-scanner";
-import { BackButton } from "@/components/atoms/BackButton";
-import { styles } from "./Scanner.styles";
+
+import { View, Text } from "react-native";
 import { AppLogo } from "@/components/atoms/AppLogo";
+import { BackButton } from "@/components/atoms/BackButton";
+
+import { Collections } from "@/lib/firebase/functions";
+
+import { handleTicketUpdate } from "./Scanner.functions";
+
+import { styles } from "./Scanner.styles";
 
 export function Scanner(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
   const [scanned, setScanned] = useState(false);
+
+  const ticketMutation = useMutation(async (ticketId: string) => {
+    setScanned(true);
+    const ticketRef = doc(collection(firestore, Collections.Tickets), ticketId);
+    handleTicketUpdate({ ticketRef }).finally(() => setScanned(false));
+  });
   // --- END: Hooks -----------------------------------------------------------------------
 
   // --- Side effects ----------------------------------------------------------
@@ -16,29 +31,26 @@ export function Scanner(): React.JSX.Element {
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === PermissionStatus.GRANTED);
+      setScanned(false);
     })();
   }, []);
   // --- END: Side effects -----------------------------------------------------
 
   // --- Data and handlers ----------------------------------------------------------------
-  const handleBarCodeScanned = ({ data }: { data: string }) => {
-    setScanned(true);
-    Alert.alert(`Bar code data ${data} has been scanned!`);
-    setScanned(false);
-  };
+  const handleBarCodeScanned = ({ data }: { data: string }) => ticketMutation.mutate(data);
   // --- END: Data and handlers ----------------------------------------------------------
 
   if (hasPermission === null) {
     return (
       <View>
-        <Text>Requesting for permission</Text>
+        <Text>Esperando permisos</Text>
       </View>
     );
   }
   if (hasPermission === false) {
     return (
       <View>
-        <Text>No access to camera</Text>
+        <Text>Sin acceso a la cámara</Text>
       </View>
     );
   }

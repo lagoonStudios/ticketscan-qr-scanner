@@ -23,7 +23,15 @@ exports[`<SignIn /> Should match snapshot 1`] = `
       <View>
         <Image
           alt="Ticket scan logo"
+          resizeMode="contain"
           source={1}
+          style={
+            {
+              "alignSelf": "center",
+              "height": 300,
+              "width": 300,
+            }
+          }
         />
       </View>
       <View
@@ -92,7 +100,13 @@ exports[`<SignIn /> Should match snapshot 1`] = `
               />
             </View>
           </View>
-          <View />
+          <View
+            style={
+              {
+                "height": 22,
+              }
+            }
+          />
         </View>
         <View>
           <View
@@ -189,7 +203,7 @@ exports[`<SignIn /> Should match snapshot 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             {
-              "backgroundColor": "#2FF5A3",
+              "backgroundColor": "#288F5B",
               "borderRadius": 10,
               "elevation": 10,
               "opacity": 1,
@@ -223,33 +237,42 @@ exports[`<SignIn /> Should match snapshot 1`] = `
   <View
     style={
       {
-        "alignContent": "center",
-        "alignItems": "center",
-        "display": "flex",
-        "marginBottom": 15,
+        "bottom": 0,
+        "position": "absolute",
+        "width": "100%",
       }
     }
   >
-    <Text
+    <View
       style={
         {
-          "color": "#73C69C",
-          "textAlign": "center",
+          "alignContent": "center",
+          "alignItems": "center",
+          "display": "flex",
         }
       }
     >
-      © Ticketscan todos los derechos reservados 2023
-    </Text>
-    <Text
-      style={
-        {
-          "color": "#73C69C",
-          "textAlign": "center",
+      <Text
+        style={
+          {
+            "color": "#73C69C",
+            "textAlign": "center",
+          }
         }
-      }
-    >
-      Powered by Lagoon Studio
-    </Text>
+      >
+        © Ticketscan todos los derechos reservados 2023
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#73C69C",
+            "textAlign": "center",
+          }
+        }
+      >
+        Powered by Lagoon Studio
+      </Text>
+    </View>
   </View>
 </View>
 `;
