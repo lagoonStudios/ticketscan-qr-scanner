@@ -1,14 +1,14 @@
-import { handleFirebaseErrorMessage } from "@/lib/firebase/functions";
-import { Ticket } from "@/models/app.models";
-import { DocumentData, DocumentReference, getDoc, updateDoc } from "firebase/firestore";
 import Toast from "react-native-toast-message";
+import { collection, doc, getDoc, updateDoc } from "firebase/firestore";
 
-export const handleTicketUpdate = async ({
-  ticketRef,
-}: {
-  ticketRef: DocumentReference<DocumentData, DocumentData>;
-}) => {
+import { firestore } from "@/lib/firebase/firebaseConfig";
+import { Collections, handleFirebaseErrorMessage } from "@/lib/firebase/functions";
+
+import { Ticket } from "@/models/app.models";
+
+export const handleTicketUpdate = async (ticketId: string) => {
   return new Promise(async (resolve, reject) => {
+    const ticketRef = doc(collection(firestore, Collections.Tickets), ticketId);
     const ticketDoc = await getDoc(ticketRef);
     const ticket = ticketDoc.data() as Ticket;
 

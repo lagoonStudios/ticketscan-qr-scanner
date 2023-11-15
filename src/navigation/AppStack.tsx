@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { Home } from "@/pages/Home";
 import { Scanner } from "@/pages/Scanner";
+import { ManualRegister } from "@/pages/ManualRegister";
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,11 @@ export default function AppStack() {
         <Stack.Screen
           name="Scanner"
           component={Scanner}
+          options={{ cardOverlayEnabled: false, headerShown: false }}
+        />
+        <Stack.Screen
+          name="ManualRegister"
+          component={ManualRegister}
           options={{ cardOverlayEnabled: false, headerShown: false }}
         />
       </Stack.Navigator>

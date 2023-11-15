@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { collection, doc } from "firebase/firestore";
-import { firestore } from "@/lib/firebase/firebaseConfig";
 import { BarCodeScanner, PermissionStatus } from "expo-barcode-scanner";
 
 import { View, Text } from "react-native";
 import { AppLogo } from "@/components/atoms/AppLogo";
 import { BackButton } from "@/components/atoms/BackButton";
-
-import { Collections } from "@/lib/firebase/functions";
 
 import { handleTicketUpdate } from "./Scanner.functions";
 
@@ -21,8 +17,7 @@ export function Scanner(): React.JSX.Element {
 
   const ticketMutation = useMutation(async (ticketId: string) => {
     setScanned(true);
-    const ticketRef = doc(collection(firestore, Collections.Tickets), ticketId);
-    handleTicketUpdate({ ticketRef }).finally(() => setScanned(false));
+    handleTicketUpdate(ticketId).finally(() => setScanned(false));
   });
   // --- END: Hooks -----------------------------------------------------------------------
 
