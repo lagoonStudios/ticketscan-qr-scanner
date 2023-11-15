@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "expo-template",
-    "slug": "expo-template",
+    "name": "Ticket Scan QR Scanner",
+    "slug": "ticket-scan-qr",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/icon.png",
+    "icon": "./src/assets/logo.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./src/assets/splash.png",
@@ -24,7 +24,15 @@
       }
     },
     "web": {
-      "favicon": "./src/assets/favicon.png"
-    }
+      "favicon": "./src/assets/logo.png"
+    },
+    "plugins": [
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access camera."
+        }
+      ]
+    ]
   }
 }

@@ -4,20 +4,23 @@ import { Colors } from "@/styles/colors";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Colors.background,
+  },
+  logo: {
+    height: 73,
+    width: 100,
+    resizeMode: "contain",
+  },
+  sectionsContainer: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: Colors.white,
-    margin: 40,
+    gap: 40,
+    height: "90%",
   },
-  title: { fontSize: 32, fontWeight: "bold", margin: 20 },
-  sectionsContainer: {
-    display: "flex",
-    flexDirection: "row",
-    width: "100%",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
-    gap: 26,
+  logoutButton: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+    zIndex: 10,
   },
-  subHeader: { fontSize: 16, margin: 10, fontWeight: "500", textAlign: "center" },
-  listItem: { margin: 5 },
 });

@@ -1,16 +1,15 @@
-import { firestore } from "App";
-import { collection, addDoc } from "firebase/firestore";
+export enum Collections {
+  Users = "Users",
+  Tickets = "Tickets",
+}
 
-export const testFirebase = async () => {
-  try {
-    const ref = collection(firestore, "users");
-    const docRef = await addDoc(ref, {
-      first: "Ada",
-      last: "Lovelace",
-      born: 1815,
-    });
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
+export const handleFirebaseErrorMessage = (errorCode: string) => {
+  const errorMessageMap: { [key: string]: string } = {
+    "not-found": "No encontrado",
+  };
+  const defaultMessage = "Algo salió mal";
+
+  const mappedMessage = Object.keys(errorMessageMap).find((key) => errorCode.includes(key));
+
+  return mappedMessage ? errorMessageMap[mappedMessage] : defaultMessage;
 };
