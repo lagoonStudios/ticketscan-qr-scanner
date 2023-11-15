@@ -8,11 +8,11 @@ import { useAuthErrorMessage, logIn } from "@/hooks/auth";
 import { styles } from "./SignIn.styles";
 import { FormValues } from "./SignIn.constants";
 
-// import { AntDesign } from "@expo/vector-icons";
-import { Image, ScrollView, Text, View } from "react-native";
 import { Button } from "@/components/atoms/Button";
+import { AppLogo } from "@/components/atoms/AppLogo";
+import { ScrollView, Text, View } from "react-native";
 import { TextInput } from "@/components/atoms/TextInput";
-import { FooterLegent } from "@/components/atoms/FooterLegend";
+import { FooterLegend } from "@/components/atoms/FooterLegend";
 
 export function SignIn(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
@@ -44,9 +44,7 @@ export function SignIn(): React.JSX.Element {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.contentView}>
-        <View>
-          <Image source={require("@/assets/logo.png")} alt="Ticket scan logo" />
-        </View>
+        <AppLogo width={300} height={300} />
         <FormProvider {...methods}>
           <View style={styles.formContainer}>
             <View>
@@ -60,7 +58,7 @@ export function SignIn(): React.JSX.Element {
                 }}
                 testID="email-input"
               />
-              {!errors.email && <View style={styles.errroSpace}></View>}
+              {!errors.email && <View style={styles.errorSpace}></View>}
               {errors.email && errors.email.type === "required" && (
                 <Text style={styles.errorText}>Requerido</Text>
               )}
@@ -77,18 +75,21 @@ export function SignIn(): React.JSX.Element {
                 rules={{ required: "Password is required!" }}
                 testID="password-input"
               />
-              {!errors.password && <View style={styles.errroSpace}></View>}
+              {!errors.password && <View style={styles.errorSpace}></View>}
               {errors.password && errors.password.type === "required" && (
                 <Text style={styles.errorText}>Requerido</Text>
               )}
             </View>
-            <Button disabled={loginMutation.isLoading} onPress={methods.handleSubmit(onSubmit)} testID="submit-login">
-              {!loginMutation.isLoading && <Text style={styles.buttonText}>Ingresar</Text>}
+            <Button
+              disabled={loginMutation.isLoading}
+              onPress={methods.handleSubmit(onSubmit)}
+              testID="submit-login">
+              Ingresar
             </Button>
           </View>
         </FormProvider>
       </ScrollView>
-      <FooterLegent />
+      <FooterLegend />
     </View>
   );
 }

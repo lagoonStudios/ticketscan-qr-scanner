@@ -21,18 +21,13 @@ export const styles = StyleSheet.create({
     gap: 20,
     width: "70%",
   },
-  buttonText: {
-    textAlign: "center",
-    fontWeight: "800",
-    color: Colors.white,
-  },
   errorText: {
-    color: Colors.red,
+    color: Colors.red.default,
     marginTop: 5,
     marginLeft: 15,
     fontWeight: "600",
   },
-  errroSpace: {
+  errorSpace: {
     height: 22,
   },
 });

@@ -1,24 +1,35 @@
 import React from "react";
-import { View, Text, Pressable } from "react-native";
+import { View } from "react-native";
+
+import { Button } from "@/components/atoms/Button";
+import { EventBanner } from "@/components/atoms/EventBanner";
+import { LogoutButton } from "@/components/atoms/LogoutButton";
+import { FooterLegend } from "@/components/atoms/FooterLegend";
 
 import { styles } from "./Home.styles";
+import { Link } from "@react-navigation/native";
+import { AppLogo } from "@/components/atoms/AppLogo";
 
-import { logOut } from "@/hooks/auth";
-
-export function Home(): React.JSX.Element {
+export function Home({ navigation }: any): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
+  const handleNavigate = () => {
+    navigation.navigate("Scanner");
+  };
   // --- END: Hooks -----------------------------------------------------------------------
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Template repo for React native with Expo</Text>
-
+      <LogoutButton containerStyles={styles.logoutButton} />
       <View style={styles.sectionsContainer}>
-        <View>
-          <Pressable onPress={() => logOut()}>
-            <Text>LogOut</Text>
-          </Pressable>
-        </View>
+        <EventBanner source={require("@/assets/logo.png")} />
+        <Link to="Scanner">
+          <Button onPress={() => handleNavigate()}>Escanear código QR</Button>
+        </Link>
+
+        <Button>Registro manual</Button>
       </View>
+      <FooterLegend>
+        <AppLogo containerStyle={{ alignItems: "flex-end" }} height={100} width={100} />
+      </FooterLegend>
     </View>
   );
 }

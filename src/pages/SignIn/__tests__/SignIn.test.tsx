@@ -8,7 +8,7 @@ import setupComponent from "@/utils/tests-utils";
 import { SignIn } from "..";
 
 describe("<SignIn />", () => {
-  test("Should render propperly / has 2 childs", () => {
+  test("Should render", () => {
     const tree = setupComponent(<SignIn />).toJSON();
     expect(tree.children.length).toBe(2);
   });
@@ -76,13 +76,13 @@ describe("<SignIn />", () => {
     );
 
     const toast = jest.spyOn(Toast, "show");
-    const handleErrorMessagee = jest.spyOn(localAuth, "useAuthErrorMessage");
+    const handleErrorMessage = jest.spyOn(localAuth, "useAuthErrorMessage");
 
     await user.type(screen.getByTestId("email-input"), "validemail@asd.com");
     await user.type(screen.getByTestId("password-input"), "123456");
     await user.press(screen.getByTestId("submit-login"));
 
     expect(toast).toHaveBeenCalledTimes(1);
-    expect(handleErrorMessagee).toHaveBeenCalledTimes(1);
+    expect(handleErrorMessage).toHaveBeenCalledTimes(1);
   });
 });

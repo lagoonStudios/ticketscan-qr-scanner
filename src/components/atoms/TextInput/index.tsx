@@ -1,7 +1,9 @@
-import { useFormContext } from "react-hook-form";
-import { ControlledInput } from "./ControlledInput";
-import { TextInputProps } from "./TextInput.constants";
 import { useEffect, useState } from "react";
+import { useFormContext } from "react-hook-form";
+
+import { TextInputProps } from "./TextInput.constants";
+
+import { ControlledInput } from "./ControlledInput";
 
 export const TextInput = (props: TextInputProps): React.JSX.Element | undefined => {
   // --- Hooks ----------------------------------------------------------------------------
@@ -22,7 +24,7 @@ export const TextInput = (props: TextInputProps): React.JSX.Element | undefined 
       console.error(msg);
       setHasError(true);
     }
-  }, [])
+  }, []);
   // --- END: Side Effects -----------------------------------------------------------
 
   return hasError ? undefined : <ControlledInput {...props} />;

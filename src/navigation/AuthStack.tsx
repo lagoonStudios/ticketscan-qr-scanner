@@ -13,7 +13,7 @@ export default function AuthStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Signin" component={SignIn} options={{cardOverlayEnabled: false, headerShown: false}} />
+        <Stack.Screen name="SignIn" component={SignIn} options={{cardOverlayEnabled: false, headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,11 +1,17 @@
 import { View, Text } from "react-native";
-import { styles } from "./FooterLegend.styles";
 
-export function FooterLegent() {
+import { styles } from "./FooterLegend.styles";
+import { FooterLegendProps } from "./FooterLegent.constants";
+
+export function FooterLegend(props: FooterLegendProps) {
+  const { children } = props;
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>© Ticketscan todos los derechos reservados 2023</Text>
-      <Text style={styles.text}>Powered by Lagoon Studio</Text>
+    <View style={styles.footer}>
+      <View style={styles.container}>
+        {children}
+        <Text style={styles.text}>© Ticketscan todos los derechos reservados 2023</Text>
+        <Text style={styles.text}>Powered by Lagoon Studio</Text>
+      </View>
     </View>
   );
 }

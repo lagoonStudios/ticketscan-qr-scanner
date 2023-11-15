@@ -23,7 +23,15 @@ exports[`<SignIn /> Should match snapshot 1`] = `
       <View>
         <Image
           alt="Ticket scan logo"
+          resizeMode="contain"
           source={1}
+          style={
+            {
+              "alignSelf": "center",
+              "height": 300,
+              "width": 300,
+            }
+          }
         />
       </View>
       <View
@@ -47,6 +55,7 @@ exports[`<SignIn /> Should match snapshot 1`] = `
                   "borderColor": "#FFFFFF",
                   "borderRadius": 10,
                   "borderWidth": 2,
+                  "elevation": 10,
                   "height": "auto",
                   "shadowColor": "#000000",
                   "shadowOffset": {
@@ -111,6 +120,7 @@ exports[`<SignIn /> Should match snapshot 1`] = `
                   "borderColor": "#FFFFFF",
                   "borderRadius": 10,
                   "borderWidth": 2,
+                  "elevation": 10,
                   "height": "auto",
                   "shadowColor": "#000000",
                   "shadowOffset": {
@@ -168,7 +178,7 @@ exports[`<SignIn /> Should match snapshot 1`] = `
             {
               "busy": undefined,
               "checked": undefined,
-              "disabled": undefined,
+              "disabled": false,
               "expanded": undefined,
               "selected": undefined,
             }
@@ -184,9 +194,7 @@ exports[`<SignIn /> Should match snapshot 1`] = `
           accessible={true}
           collapsable={false}
           focusable={true}
-          onBlur={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -194,17 +202,20 @@ exports[`<SignIn /> Should match snapshot 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            [
-              {
-                "opacity": 1,
+            {
+              "backgroundColor": "#288F5B",
+              "borderRadius": 10,
+              "elevation": 10,
+              "opacity": 1,
+              "padding": 15,
+              "shadowColor": "#000000",
+              "shadowOffset": {
+                "height": 4,
+                "width": 0,
               },
-              {
-                "backgroundColor": "#288F5B",
-                "borderRadius": 20,
-                "padding": 15,
-              },
-              {},
-            ]
+              "shadowOpacity": 0.25,
+              "shadowRadius": 4,
+            }
           }
           testID="submit-login"
         >
@@ -226,33 +237,42 @@ exports[`<SignIn /> Should match snapshot 1`] = `
   <View
     style={
       {
-        "alignContent": "center",
-        "alignItems": "center",
-        "display": "flex",
-        "marginBottom": 15,
+        "bottom": 0,
+        "position": "absolute",
+        "width": "100%",
       }
     }
   >
-    <Text
+    <View
       style={
         {
-          "color": "#73C69C",
-          "textAlign": "center",
+          "alignContent": "center",
+          "alignItems": "center",
+          "display": "flex",
         }
       }
     >
-      © Ticketscan todos los derechos reservados 2023
-    </Text>
-    <Text
-      style={
-        {
-          "color": "#73C69C",
-          "textAlign": "center",
+      <Text
+        style={
+          {
+            "color": "#73C69C",
+            "textAlign": "center",
+          }
         }
-      }
-    >
-      Powered by Lagoon Studio
-    </Text>
+      >
+        © Ticketscan todos los derechos reservados 2023
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#73C69C",
+            "textAlign": "center",
+          }
+        }
+      >
+        Powered by Lagoon Studio
+      </Text>
+    </View>
   </View>
 </View>
 `;
