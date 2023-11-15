@@ -1,25 +1,28 @@
-import Toast from "react-native-toast-message";
+import { View, Text, Alert } from "react-native";
+import { useMutation } from "@tanstack/react-query";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+
+import { manualRegister } from "./ManualRegister.functions";
+
+import { Button } from "@/components/atoms/Button";
 import { AppLogo } from "@/components/atoms/AppLogo";
 import { TextInput } from "@/components/atoms/TextInput";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { View, Text } from "react-native";
-import { Button } from "@/components/atoms/Button";
-import { useMutation } from "@tanstack/react-query";
+import { BackButton } from "@/components/atoms/BackButton";
+
 import { styles } from "./ManualRegister.styles";
-import { manualRegister } from "./ManualRegister.functions";
 
 export function ManualRegister(): React.JSX.Element {
   // --- Hooks ----------------------------------------------------------------------------
   const { ...methods } = useForm({ defaultValues: { document: "" } });
 
-  const registerMutation = useMutation((data: { document: string }) => manualRegister(data.document), {
-    onError: (error: any) => {
-      Toast.show({
-        type: "error",
-        text1: "Ocurrió un error",
-      });
-    },
-  });
+  const registerMutation = useMutation(
+    (data: { document: string }) => manualRegister(data.document),
+    {
+      onError: ({ message, type }: { message: string; type: string }) => {
+        Alert.alert(type, message);
+      },
+    }
+  );
   // --- END: Hooks -----------------------------------------------------------------------
 
   // --- Local state ----------------------------------------------------------------------
@@ -33,6 +36,7 @@ export function ManualRegister(): React.JSX.Element {
   // --- END: Data and handlers ----------------------------------------------------------
   return (
     <View style={styles.container}>
+      <BackButton containerStyles={styles.backButton} />
       <AppLogo width={300} height={300} />
       <FormProvider {...methods}>
         <View style={styles.formContainer}>

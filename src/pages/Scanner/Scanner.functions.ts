@@ -1,4 +1,4 @@
-import Toast from "react-native-toast-message";
+import { Alert } from "react-native";
 import { collection, doc, getDoc, updateDoc } from "firebase/firestore";
 
 import { firestore } from "@/lib/firebase/firebaseConfig";
@@ -14,36 +14,24 @@ export const handleTicketUpdate = async (ticketId: string) => {
 
     if (Boolean(ticketDoc.exists())) {
       if (ticket.attendance) {
-        Toast.show({
-          type: "info",
-          text1: "El ticket ya fué registrado",
-        });
-
+        Alert.alert("Info", `El ticket ya fué registrado - ${ticket.name || ""}`);
         resolve(null);
       } else {
         updateDoc(ticketRef, { attendance: true }).then(
           async () => {
-            Toast.show({
-              type: "success",
-              text1: "Registro exitoso",
-            });
+            Alert.alert("Exitoso", "Registro exitoso");
             resolve(null);
           },
           (err) => {
-            Toast.show({
-              type: "error",
-              text1: handleFirebaseErrorMessage(err.code || ""),
-            });
+            const message = handleFirebaseErrorMessage(err.code || "");
+            Alert.alert("ERROR", message);
             reject(err);
           }
         );
       }
     } else {
-      Toast.show({
-        type: "error",
-        text1: "Registro no existente",
-      });
-      resolve(null);
+      Alert.alert("ERROR", "Registro no existente");
+      reject(null);
     }
   });
 };

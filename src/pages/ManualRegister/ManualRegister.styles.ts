@@ -1,7 +1,6 @@
 import { Colors } from "@/styles/colors";
 import { StyleSheet } from "react-native";
 
-
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.background,
@@ -16,5 +15,10 @@ export const styles = StyleSheet.create({
   },
   errorSpace: {
     height: 35,
+  },
+  backButton: {
+    position: "absolute",
+    top: 0,
+    left: 5,
   },
 });
