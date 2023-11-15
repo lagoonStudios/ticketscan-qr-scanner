@@ -11,6 +11,7 @@ export interface Ticket {
   wasPay: boolean;
   vendorId?: string;
   scannerId?: string;
+  name?: string;
 }
 
 export interface Event {

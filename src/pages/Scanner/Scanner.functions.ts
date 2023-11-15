@@ -1,49 +1,37 @@
-import { handleFirebaseErrorMessage } from "@/lib/firebase/functions";
-import { Ticket } from "@/models/app.models";
-import { DocumentData, DocumentReference, getDoc, updateDoc } from "firebase/firestore";
-import Toast from "react-native-toast-message";
+import { Alert } from "react-native";
+import { collection, doc, getDoc, updateDoc } from "firebase/firestore";
 
-export const handleTicketUpdate = async ({
-  ticketRef,
-}: {
-  ticketRef: DocumentReference<DocumentData, DocumentData>;
-}) => {
+import { firestore } from "@/lib/firebase/firebaseConfig";
+import { Collections, handleFirebaseErrorMessage } from "@/lib/firebase/functions";
+
+import { Ticket } from "@/models/app.models";
+
+export const handleTicketUpdate = async (ticketId: string) => {
   return new Promise(async (resolve, reject) => {
+    const ticketRef = doc(collection(firestore, Collections.Tickets), ticketId);
     const ticketDoc = await getDoc(ticketRef);
     const ticket = ticketDoc.data() as Ticket;
 
     if (Boolean(ticketDoc.exists())) {
       if (ticket.attendance) {
-        Toast.show({
-          type: "info",
-          text1: "El ticket ya fué registrado",
-        });
-
+        Alert.alert("Info", `El ticket ya fué registrado - ${ticket.name || ""}`);
         resolve(null);
       } else {
         updateDoc(ticketRef, { attendance: true }).then(
           async () => {
-            Toast.show({
-              type: "success",
-              text1: "Registro exitoso",
-            });
+            Alert.alert("Exitoso", "Registro exitoso");
             resolve(null);
           },
           (err) => {
-            Toast.show({
-              type: "error",
-              text1: handleFirebaseErrorMessage(err.code || ""),
-            });
+            const message = handleFirebaseErrorMessage(err.code || "");
+            Alert.alert("ERROR", message);
             reject(err);
           }
         );
       }
     } else {
-      Toast.show({
-        type: "error",
-        text1: "Registro no existente",
-      });
-      resolve(null);
+      Alert.alert("ERROR", "Registro no existente");
+      reject(null);
     }
   });
 };
